@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "817766394123",
+    "project_id": "sumittask-7b34a",
+    "storage_bucket": "sumittask-7b34a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817766394123:android:94da9a69370234bd5a1a0e",
+        "android_client_info": {
+          "package_name": "com.app.sumittask9dot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJLGU4aYML0bkCYWV7yAIDN1mHY78XMJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
