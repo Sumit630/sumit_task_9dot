@@ -27,7 +27,8 @@ class LoginView extends GetView<LoginController> {
                               child: Container(
                                 margin:
                                     const EdgeInsets.symmetric(horizontal: 24),
-                                padding: const EdgeInsets.all(defaultPadding * 2),
+                                padding:
+                                    const EdgeInsets.all(defaultPadding * 2),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(16),
@@ -40,7 +41,8 @@ class LoginView extends GetView<LoginController> {
                                   ],
                                 ),
                                 child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
                                   children: [
                                     1.ph,
                                     Text(
@@ -65,8 +67,10 @@ class LoginView extends GetView<LoginController> {
                                       label: "Password :",
                                       hintText: "Password",
                                       isSuffix: true,
-                                      validator: AppValidations.validatePassword,
-                                      keyboardType: TextInputType.visiblePassword,
+                                      validator:
+                                          AppValidations.validatePassword,
+                                      keyboardType:
+                                          TextInputType.visiblePassword,
                                     ),
                                     4.ph,
                                     CustomButton(
@@ -81,7 +85,8 @@ class LoginView extends GetView<LoginController> {
                                     2.ph,
                                     const Divider(thickness: 1),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         const Text("Don't have an account?"),
                                         TextButton(

@@ -50,7 +50,6 @@ dependencies:
   connectivity_wrapper: ^1.2.6
   lottie:
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -33,7 +33,6 @@ class HomePageView extends GetView<HomePageController> {
                               isRefresh: true); // Search filter
                         }
                       },
-                      //validator: AppValidations.validatePassword,
                       keyboardType: TextInputType.text,
                     ),
                     2.ph,
@@ -50,7 +49,7 @@ class HomePageView extends GetView<HomePageController> {
                       }
 
                       if (controller.jobs.isEmpty) {
-                        // Show "No data found" when search result or job list is empty
+                        /// Show "No data found" when search result or job list is empty
                         return Expanded(
                           child: Center(
                             child: Text(
@@ -112,11 +111,19 @@ class HomePageView extends GetView<HomePageController> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        JobDetailText(label: "Type", value: job.jobType),
-                                        JobDetailText(label: "Location", value: job.location),
-                                        JobDetailText(label: "Salary", value: job.salary),
-                                        JobDetailText(label: "State", value: job.stateName),
-                                        JobDetailText(label: "Posted", value: formatDate(job.createdAt)),
+                                        JobDetailText(
+                                            label: "Type", value: job.jobType),
+                                        JobDetailText(
+                                            label: "Location",
+                                            value: job.location),
+                                        JobDetailText(
+                                            label: "Salary", value: job.salary),
+                                        JobDetailText(
+                                            label: "State",
+                                            value: job.stateName),
+                                        JobDetailText(
+                                            label: "Posted",
+                                            value: formatDate(job.createdAt)),
                                       ],
                                     ),
                                   ),
@@ -130,10 +137,17 @@ class HomePageView extends GetView<HomePageController> {
                   ],
                 ),
               ),
-              floatingActionButton: FloatingActionButton(backgroundColor: AppColors.white,onPressed: () async {
-                await prefs.clear();
-                NavigationService.replaceAll(Routes.login);
-              },child: Icon(Icons.logout,color: AppColors.red,),),
+              floatingActionButton: FloatingActionButton(
+                backgroundColor: AppColors.white,
+                onPressed: () async {
+                  await prefs.clear();
+                  NavigationService.replaceAll(Routes.login);
+                },
+                child: Icon(
+                  Icons.logout,
+                  color: AppColors.red,
+                ),
+              ),
             ),
           ),
         );
