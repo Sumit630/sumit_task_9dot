@@ -1,8 +1,5 @@
-
-
 import 'app.export.dart';
 
-class GlobalVar{
-
-  static RxString fCMToken="".obs;
+class GlobalVar {
+  static RxString fCMToken = "".obs;
 }

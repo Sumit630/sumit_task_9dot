@@ -1,23 +1,27 @@
-
-
 import '../res/app.export.dart';
 
 class NavigationService {
-  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey<NavigatorState>();
 
   /// Navigate to a named route with a fade transition
   static Future<dynamic> getToRoute(String Routes, {dynamic arguments}) async {
-    return Get.toNamed(Routes,arguments: arguments);
+    return Get.toNamed(Routes, arguments: arguments);
   }
 
-  static Future<dynamic> downToupRouteToNamed(String Routes, {dynamic arguments}) async {
-    return Get.to(_getPage(Routes),arguments: arguments,transition: Transition.downToUp, fullscreenDialog: true,duration: Duration(milliseconds: 400));
+  static Future<dynamic> downToupRouteToNamed(String Routes,
+      {dynamic arguments}) async {
+    return Get.to(_getPage(Routes),
+        arguments: arguments,
+        transition: Transition.downToUp,
+        fullscreenDialog: true,
+        duration: Duration(milliseconds: 400));
     // return navigatorKey.currentState?.push(_slideUpRoute(Routes, arguments: arguments));
   }
 
   /// Clear all routes and navigate to a named route with a fade transition
   static Future<dynamic> replaceAll(String Routes, {dynamic arguments}) async {
-    return Get.offAllNamed(Routes,arguments: arguments);
+    return Get.offAllNamed(Routes, arguments: arguments);
   }
 
   /// Navigate back
@@ -43,9 +47,8 @@ class NavigationService {
 
   static Widget _getPage(String route) {
     final page = AppPages.routes.firstWhereOrNull((r) => r.name == route);
-    if (page == null) throw UnimplementedError('Route $route is not defined in AppPages.');
+    if (page == null)
+      throw UnimplementedError('Route $route is not defined in AppPages.');
     return page.page();
   }
-
 }
-

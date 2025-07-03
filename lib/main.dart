@@ -9,7 +9,9 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await NotificationService().init();
-  runApp(const MyApp());
+  runApp(ConnectivityAppWrapper(
+    app: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,15 +20,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812), // iPhone X design base (you can change)
+      designSize: const Size(375, 812),
+      // iPhone X design base (you can change)
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
         return GetMaterialApp(
           title: "Task",
-          initialRoute: prefs.getString(LocalStorage.loginKey.toString()) != null
-              ? Routes.HOME_PAGE
-              : AppPages.INITIAL,
+          initialRoute:
+              prefs.getString(LocalStorage.loginKey.toString()) != null
+                  ? Routes.HOME_PAGE
+                  : AppPages.INITIAL,
           getPages: AppPages.routes,
           navigatorKey: NavigationService.navigatorKey,
           scaffoldMessengerKey: AppToast.snackBarKey,
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
           transitionDuration: const Duration(milliseconds: 600),
           theme: ThemeData(
             useMaterial3: true,
-            scaffoldBackgroundColor:AppColors.white,
+            scaffoldBackgroundColor: AppColors.white,
             splashFactory: NoSplash.splashFactory,
             splashColor: AppColors.transparent,
             textSelectionTheme: const TextSelectionThemeData(
@@ -49,13 +53,18 @@ class MyApp extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
           ),
           builder: (context, child) {
-            return MediaQuery(
-              data: MediaQuery.of(context).copyWith(
-                textScaler: const TextScaler.linear(1.0),
-              ),
-              child: GestureDetector(
-                onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                child: child!,
+            /// ConnectivityWidgetWrapper use net work
+            return ConnectivityWidgetWrapper(
+              disableInteraction: false,
+              message: "No internet connection",
+              child: MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  textScaler: const TextScaler.linear(1.0),
+                ),
+                child: GestureDetector(
+                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                  child: child!,
+                ),
               ),
             );
           },

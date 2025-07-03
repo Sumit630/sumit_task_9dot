@@ -175,9 +175,10 @@ extension TextStyleExtensions on TextStyle {
     double? letterSpacing,
     double? fontSize,
     FontWeight? weight,
-  }) => copyWith(
-    letterSpacing: letterSpacing,
-    fontSize: fontSize,
-    fontWeight: weight,
-  );
+  }) =>
+      copyWith(
+        letterSpacing: letterSpacing,
+        fontSize: fontSize,
+        fontWeight: weight,
+      );
 }

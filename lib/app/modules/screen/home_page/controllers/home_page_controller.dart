@@ -1,7 +1,8 @@
 import '../../../../data/res/app.export.dart';
+
 class HomePageController extends GetxController {
   final apiCall = ApiCall();
-  String userId="";
+  String userId = "";
   final jobs = <JobModel>[].obs;
   final isLoading = false.obs;
 
@@ -13,12 +14,13 @@ class HomePageController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    userId=prefs.getString(LocalStorage.userId.toString()) ?? "";
-      fetchJobs();
+    userId = prefs.getString(LocalStorage.userId.toString()) ?? "";
+    fetchJobs();
   }
 
   void fetchJobs({bool isRefresh = false}) async {
-    print("🔄 Fetching Jobs... isLoading: ${isLoading.value}, canLoadMore: $canLoadMore");
+    print(
+        "🔄 Fetching Jobs... isLoading: ${isLoading.value}, canLoadMore: $canLoadMore");
 
     if (isLoading.value || (!canLoadMore && !isRefresh)) return;
 
@@ -64,8 +66,8 @@ class HomePageController extends GetxController {
       },
     );
   }
-
 }
+
 String formatDate(String rawDate) {
   try {
     final dateTime = DateTime.parse(rawDate);

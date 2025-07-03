@@ -1,8 +1,9 @@
 import 'app.export.dart';
-class AppColors{
+
+class AppColors {
   static const Color transparent = Colors.transparent;
   static const Color appColor = Color(0xff0540e6);
-  static  Color appColorWithOpacity = Color(0xff0540e6).withOpacity(.50);
+  static Color appColorWithOpacity = Color(0xff0540e6).withOpacity(.50);
   static Color colorBackGraund = Color(0xFFfeffff);
   static Color colorHendingColor = Color(0xFF19191b);
   static Color colorTextFilBG = Color(0xFFeef2f6);

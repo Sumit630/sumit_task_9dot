@@ -14,9 +14,7 @@ double largeWidgetWidth(BuildContext context) =>
     MediaQuery.of(context).size.width * 0.55;
 
 extension SizedBoxPadding on num {
-  SizedBox get ph  => SizedBox(height: defaultPadding * toDouble());
+  SizedBox get ph => SizedBox(height: defaultPadding * toDouble());
   SizedBox get pw => SizedBox(width: defaultPadding * toDouble());
   double get m8 => defaultPadding * toDouble();
 }
-
-

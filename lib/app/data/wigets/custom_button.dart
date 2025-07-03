@@ -1,5 +1,3 @@
-
-
 import '../res/app.export.dart';
 
 class CustomButton extends StatelessWidget {
@@ -31,12 +29,12 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: textStyle ??
-            inter.bold.get14.white,
+        style: textStyle ?? inter.bold.get14.white,
       ),
     );
   }
 }
+
 class IconBtnWidget extends StatelessWidget {
   final Function() onPressed;
   final Widget icon;
@@ -44,9 +42,9 @@ class IconBtnWidget extends StatelessWidget {
 
   const IconBtnWidget(
       {super.key,
-        required this.onPressed,
-        required this.icon,
-        this.visualDensity});
+      required this.onPressed,
+      required this.icon,
+      this.visualDensity});
 
   @override
   Widget build(BuildContext context) {

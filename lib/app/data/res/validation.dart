@@ -1,4 +1,3 @@
-
 class AppValidations {
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
@@ -9,6 +8,7 @@ class AppValidations {
     if (!nameExp.hasMatch(value.trim())) return 'Please enter a valid email';
     return null;
   }
+
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter password';
@@ -32,6 +32,7 @@ class AppValidations {
 
     return null; // valid
   }
+
   static String? validateName(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Please enter your name';
@@ -48,6 +49,7 @@ class AppValidations {
 
     return null; // valid
   }
+
   static String? validateSecondName(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Please enter your second name';
@@ -64,6 +66,7 @@ class AppValidations {
 
     return null; // valid
   }
+
   static String? validateMobileNumber(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'Please enter mobile number';
@@ -77,5 +80,4 @@ class AppValidations {
 
     return null; // valid
   }
-
 }

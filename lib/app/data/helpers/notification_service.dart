@@ -2,8 +2,6 @@ import 'dart:io';
 
 import '../res/app.export.dart';
 
-
-
 class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
   factory NotificationService() => _instance;
@@ -12,7 +10,7 @@ class NotificationService {
 
   final FirebaseMessaging _messaging = FirebaseMessaging.instance;
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
 
   Future<void> init() async {
     await _requestPermission();
@@ -48,7 +46,7 @@ class NotificationService {
 
     await flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>()
+            AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(channel);
   }
 
@@ -82,14 +80,16 @@ class NotificationService {
 
   void _setupOnMessageOpenedApp() {
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print("🔔 Notification clicked from background: ${message.notification?.title}");
+      print(
+          "🔔 Notification clicked from background: ${message.notification?.title}");
     });
   }
 
   void _setupInitialMessage() async {
     RemoteMessage? message = await _messaging.getInitialMessage();
     if (message != null) {
-      print("🛑 Notification opened from terminated state: ${message.notification?.title}");
+      print(
+          "🛑 Notification opened from terminated state: ${message.notification?.title}");
     }
   }
 }

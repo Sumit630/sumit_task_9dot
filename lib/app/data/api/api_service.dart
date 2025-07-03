@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+
 enum MethodType { post }
 
 class ApiCall {
@@ -20,18 +21,21 @@ class ApiCall {
 
       switch (method) {
         case MethodType.post:
-          response = await _dio.post(endPoint, data: FormData.fromMap(requestData ?? {}));
+          response = await _dio.post(endPoint,
+              data: FormData.fromMap(requestData ?? {}));
           break;
       }
 
       if (response.statusCode == 200 && response.data['status'] == true) {
         successCallback(response.data, response.data['message'] ?? 'Success');
       } else {
-        failureCallback(response.data['message'] ?? 'Something went wrong', response.statusCode);
+        failureCallback(response.data['message'] ?? 'Something went wrong',
+            response.statusCode);
       }
     } catch (e) {
       if (e is DioException) {
-        failureCallback(e.response?.data['message'] ?? e.message, e.response?.statusCode);
+        failureCallback(
+            e.response?.data['message'] ?? e.message, e.response?.statusCode);
       } else {
         failureCallback("Unexpected error: $e", null);
       }

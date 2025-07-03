@@ -1,6 +1,4 @@
-
 import 'package:sumittask9dot/app/data/res/app.export.dart';
-
 
 class AppScaffold extends StatelessWidget {
   final String? appBarTitle;
@@ -13,7 +11,8 @@ class AppScaffold extends StatelessWidget {
   final Widget? bottomNavigationBar;
   var result;
 
-  AppScaffold({super.key,
+  AppScaffold({
+    super.key,
     this.appBarTitle,
     this.floatingButton,
     required this.child,
@@ -21,22 +20,24 @@ class AppScaffold extends StatelessWidget {
     this.resizeToAvoidBottomInset = true,
     this.scaffoldBackgroundColor,
     this.bottomNavigationBar,
-    this. result,
+    this.result,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset:resizeToAvoidBottomInset,
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: appBarTitle != null
           ? AppBar(
-        title:Text(appBarTitle ?? "", style:inter.bold.get14.white),
-        elevation: 0.0,
-        backgroundColor: AppColors.appColor,
-        leading: BackWidget(result: result,),
-        actions: actions,
-        centerTitle: false,
-      )
+              title: Text(appBarTitle ?? "", style: inter.bold.get14.white),
+              elevation: 0.0,
+              backgroundColor: AppColors.appColor,
+              leading: BackWidget(
+                result: result,
+              ),
+              actions: actions,
+              centerTitle: false,
+            )
           : null,
       floatingActionButton: floatingButton,
       backgroundColor: scaffoldBackgroundColor,

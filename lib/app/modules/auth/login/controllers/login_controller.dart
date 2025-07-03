@@ -7,10 +7,14 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   RxBool isPasswordVisible = false.obs;
-  RxBool isLoading = false.obs; ///Add this
+  RxBool isLoading = false.obs;
+
+  ///Add this
 
   void login() async {
-    isLoading.value = true; ///Start loader
+    isLoading.value = true;
+
+    ///Start loader
 
     final formData = {
       "email": emailController.text.trim(),
@@ -28,14 +32,17 @@ class LoginController extends GetxController {
 
         await prefs.setString(LocalStorage.loginKey.toString(), "Register");
         await prefs.setString(LocalStorage.userId.toString(), userId);
-        isLoading.value = false; /// Stop loader
+        isLoading.value = false;
+
+        /// Stop loader
         NavigationService.getToRoute(Routes.HOME_PAGE);
       },
       failureCallback: (message, statusCode) {
         AppToast.toast(msg: message);
-        isLoading.value = false; /// Stop loader
+        isLoading.value = false;
+
+        /// Stop loader
       },
     );
   }
 }
-

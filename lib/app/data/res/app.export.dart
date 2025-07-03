@@ -38,7 +38,9 @@ export 'package:flutter_local_notifications/flutter_local_notifications.dart';
 export 'package:firebase_messaging/firebase_messaging.dart';
 export 'package:permission_handler/permission_handler.dart';
 export 'package:sumittask9dot/app/data/res/golobal_var.dart';
-
-
-
-
+export 'package:sumittask9dot/app/data/wigets/background_screen.dart';
+export 'package:sumittask9dot/app/data/res/app_icon_path.dart';
+export 'package:lottie/lottie.dart';
+export 'package:sumittask9dot/app/data/res/get_size.dart';
+export 'package:connectivity_wrapper/connectivity_wrapper.dart';
+export 'package:sumittask9dot/app/data/wigets/job_detail_text.dart';

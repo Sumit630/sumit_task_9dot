@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import '../res/app.export.dart';
+
 Widget TextFieldTitle({required String text}) {
   return Text(
-     text,
-    style:inter.bold.get9.black,
+    text,
+    style: inter.bold.get9.black,
   );
 }
+
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final FocusNode? focusNode;
@@ -69,6 +71,7 @@ class CustomTextField extends StatefulWidget {
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
+
 class _CustomTextFieldState extends State<CustomTextField> {
   bool isShowPass = false;
   bool isValue = false;
@@ -141,20 +144,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   focusNode: widget.focusNode,
                   keyboardType: widget.keyboardType ?? TextInputType.text,
                   textCapitalization:
-                  widget.textCapitalization ?? TextCapitalization.none,
+                      widget.textCapitalization ?? TextCapitalization.none,
                   inputFormatters: widget.inputFormatters ?? [],
                   textInputAction:
-                  widget.textInputAction ?? TextInputAction.next,
+                      widget.textInputAction ?? TextInputAction.next,
                   maxLines: widget.maxLines ?? 1,
                   cursorColor: AppColors.appColor,
-                  style: widget.style ??  inter.bold.get9.black,
+                  style: widget.style ?? inter.bold.get9.black,
                   textAlign: widget.textAlign ?? TextAlign.start,
                   obscureText: isShowPass,
                   obscuringCharacter: '•',
                   showCursor: widget.showCursor,
                   cursorOpacityAnimates: true,
                   enableInteractiveSelection:
-                  widget.enableInteractiveSelection ?? true,
+                      widget.enableInteractiveSelection ?? true,
                   readOnly: widget.readOnly ?? false,
                   onTap: widget.onTap,
                   onTapOutside: (event) {
@@ -177,26 +180,28 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(widget.radius ?? 10),
-                      borderSide:BorderSide(
-                        color: Colors.grey.withOpacity(.50), // default green border
+                      borderSide: BorderSide(
+                        color: Colors.grey
+                            .withOpacity(.50), // default green border
                         width: 1.5,
                       ),
                     ),
-
                     errorStyle:
-                    const TextStyle(fontSize: 0, color: Colors.transparent),
+                        const TextStyle(fontSize: 0, color: Colors.transparent),
                     prefixIcon: widget.prefix,
                     suffixIcon: widget.suffix,
                     hintText: widget.hintText ?? "",
-                    hintStyle: widget.hintStyle ??inter.bold.get9.copyWith(color: AppColors.grey),
+                    hintStyle: widget.hintStyle ??
+                        inter.bold.get9.copyWith(color: AppColors.grey),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(widget.radius ?? 10),
                       borderSide: BorderSide.none,
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(widget.radius ?? 10),
-                      borderSide:  BorderSide(
-                        color: AppColors.appColorWithOpacity, // your custom focus color
+                      borderSide: BorderSide(
+                        color: AppColors
+                            .appColorWithOpacity, // your custom focus color
                         width: 2,
                       ),
                     ),
@@ -206,17 +211,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
                 widget.isSuffix == true && isValue == true
                     ? IconBtnWidget(
-                  onPressed: () {
-                    setState(() {
-                      isShowPass = !isShowPass;
-                    });
-                  },
-                  icon: Icon(
-                      isShowPass == false
-                          ? CupertinoIcons.eye_fill
-                          : CupertinoIcons.eye_slash_fill,
-                      size: 18),
-                )
+                        onPressed: () {
+                          setState(() {
+                            isShowPass = !isShowPass;
+                          });
+                        },
+                        icon: Icon(
+                            isShowPass == false
+                                ? CupertinoIcons.eye_fill
+                                : CupertinoIcons.eye_slash_fill,
+                            size: 18),
+                      )
                     : const Gap(),
               ],
             ),
@@ -224,8 +229,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           if (errorMessage != null && errorMessage!.isNotEmpty)
             Padding(
               padding: const EdgeInsets.only(top: 5, left: 5),
-              child:Text(
-                  errorMessage ?? "", style: inter.bold.get9.black.copyWith(color: AppColors.red)),
+              child: Text(errorMessage ?? "",
+                  style: inter.bold.get9.black.copyWith(color: AppColors.red)),
             )
         ],
       ),
